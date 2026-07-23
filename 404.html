@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Youssef Shaaban</title>
+    <meta name="description" content="The page you are looking for does not exist.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent-violet: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #06b6d4 100%);
+            --gradient-text: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4);
+            --glow-violet: rgba(139, 92, 246, 0.4);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Space Grotesk', -apple-system, sans-serif;
+        }
+        [data-theme="light"] {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4b5563;
+            --text-muted: #9ca3af;
+        }
+        [lang="ar"] { font-family: 'Cairo', 'Inter', sans-serif; }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* Controls */
+        .page-controls {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+        [dir="rtl"] .page-controls { right: auto; left: 1.5rem; }
+        .ctrl-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .ctrl-btn:hover { background: var(--gradient-primary); color: #fff; border-color: transparent; }
+        .ctrl-btn svg { width: 20px; height: 20px; }
+
+        /* Background glows */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: var(--glow-violet);
+            filter: blur(150px);
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 8s ease infinite;
+        }
+        .bg-glow-1 { top: -20%; left: -10%; }
+        .bg-glow-2 { bottom: -20%; right: -10%; animation-delay: -4s; background: rgba(59, 130, 246, 0.3); }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Main container */
+        .error-container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        /* Animated illustration */
+        .error-illustration {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+        }
+        .error-circle {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+                        var(--gradient-primary) border-box;
+            animation: rotate 10s linear infinite;
+        }
+        .error-circle-inner {
+            position: absolute;
+            inset: 20px;
+            border-radius: 50%;
+            border: 2px dashed var(--accent-violet);
+            opacity: 0.5;
+            animation: rotate 15s linear infinite reverse;
+        }
+        .error-code {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .error-dots { position: absolute; inset: -30px; }
+        .error-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-violet);
+        }
+        .error-dot:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation: pulse 2s ease infinite; }
+        .error-dot:nth-child(2) { top: 25%; right: 5%; animation: pulse 2s ease 0.3s infinite; }
+        .error-dot:nth-child(3) { bottom: 25%; right: 5%; animation: pulse 2s ease 0.6s infinite; }
+        .error-dot:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); animation: pulse 2s ease 0.9s infinite; }
+        .error-dot:nth-child(5) { bottom: 25%; left: 5%; animation: pulse 2s ease 1.2s infinite; }
+        .error-dot:nth-child(6) { top: 25%; left: 5%; animation: pulse 2s ease 1.5s infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+
+        .error-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .error-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            background: var(--gradient-primary);
+            color: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.4);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5), 0 0 40px rgba(139,92,246,0.2); }
+        .btn svg { width: 18px; height: 18px; }
+
+        .error-footer {
+            position: absolute;
+            bottom: 2rem;
+            left: 0; right: 0;
+            text-align: center;
+        }
+        .error-footer p { font-size: 0.875rem; color: var(--text-muted); }
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; height: 40px;
+            border-radius: var(--radius-md);
+            background: var(--gradient-primary);
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (max-width: 767px) {
+            .error-illustration { width: 160px; height: 160px; }
+            .error-code { font-size: 3.5rem; }
+            .error-title { font-size: 1.5rem; }
+            .error-description { font-size: 1rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Controls -->
+    <div class="page-controls">
+        <button id="lang-toggle-404" class="ctrl-btn" aria-label="Switch language">
+            <span id="lang-label-404">AR</span>
+        </button>
+        <button id="theme-toggle-404" class="ctrl-btn" aria-label="Toggle theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+    <main class="error-container">
+        <div class="error-illustration" aria-hidden="true">
+            <div class="error-dots">
+                <div class="error-dot"></div><div class="error-dot"></div>
+                <div class="error-dot"></div><div class="error-dot"></div>
+                <div class="error-dot"></div><div class="error-dot"></div>
+            </div>
+            <div class="error-circle"></div>
+            <div class="error-circle-inner"></div>
+            <div class="error-code">404</div>
+        </div>
+        <h1 class="error-title" id="err-title">Page Not Found</h1>
+        <p class="error-description" id="err-desc">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="index.html" class="btn" id="err-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span id="err-btn-text">Back to Home</span>
+        </a>
+    </main>
+
+    <footer class="error-footer">
+        <div class="footer-logo">YS</div>
+        <p id="err-footer">&copy; <span id="footer-year">2025</span> Youssef Shaaban. All rights reserved.</p>
+    </footer>
+
+    <script>
+    (function() {
+        // Theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const themeBtn = document.getElementById('theme-toggle-404');
+        themeBtn.addEventListener('click', function() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+
+        // Language
+        const T = {
+            en: {
+                title: 'Page Not Found',
+                desc: 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
+                btn: 'Back to Home',
+                footer: 'All rights reserved.'
+            },
+            ar: {
+                title: 'الصفحة غير موجودة',
+                desc: 'ربما تمت إزالة الصفحة التي تبحث عنها أو تغيير اسمها أو أنها غير متاحة مؤقتاً.',
+                btn: 'العودة للرئيسية',
+                footer: 'جميع الحقوق محفوظة.'
+            }
+        };
+
+        let lang = localStorage.getItem('language') || 'en';
+        const langBtn = document.getElementById('lang-toggle-404');
+        const langLabel = document.getElementById('lang-label-404');
+
+        function applyLang(l) {
+            lang = l;
+            const html = document.documentElement;
+            const t = T[l];
+            if (l === 'ar') {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                langLabel.textContent = 'EN';
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                langLabel.textContent = 'AR';
+            }
+            document.getElementById('err-title').textContent = t.title;
+            document.getElementById('err-desc').textContent = t.desc;
+            document.getElementById('err-btn-text').textContent = t.btn;
+            document.getElementById('err-footer').innerHTML = `&copy; <span>${new Date().getFullYear()}</span> Youssef Shaaban. ${t.footer}`;
+        }
+
+        applyLang(lang);
+        langBtn.addEventListener('click', function() {
+            const next = lang === 'en' ? 'ar' : 'en';
+            localStorage.setItem('language', next);
+            applyLang(next);
+        });
+
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    })();
+    </script>
+</body>
+</html>
