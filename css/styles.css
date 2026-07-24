@@ -2903,161 +2903,165 @@ textarea:focus-visible {
 
 
 /*======================================
-        SOCIAL ICONS COLORS
-=======================================*/
+          SOCIAL SECTION
+======================================*/
 
-.social-btn{
-    width:68px;
-    height:68px;
-    border-radius:18px;
+.social-section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.social-title{
+    margin-bottom:40px;
+}
+
+.social-title h2{
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.social-title p{
+    font-size:15px;
+    opacity:.75;
+}
+
+.social-icons{
     display:flex;
     justify-content:center;
     align-items:center;
-    text-decoration:none;
-    font-size:28px;
-    transition:all .35s ease;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.08);
+    flex-wrap:wrap;
+    gap:18px;
 }
 
-/* Hover Animation */
+/*======================================
+          SOCIAL BUTTONS
+======================================*/
+
+.social-btn{
+    width:65px;
+    height:65px;
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:28px;
+    color:#fff;
+
+    transition:.35s ease;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
 
 .social-btn:hover{
     transform:translateY(-8px) scale(1.08);
 }
 
-/*=======================
-   LinkedIn
-=======================*/
+/*======================================
+            COLORS
+======================================*/
 
 .linkedin{
-    color:#0A66C2;
-    box-shadow:0 0 12px rgba(10,102,194,.25);
+    background:#0A66C2;
+    box-shadow:0 8px 20px rgba(10,102,194,.40);
 }
-
-.linkedin:hover{
-    box-shadow:0 0 22px rgba(10,102,194,.45);
-}
-
-/*=======================
-   GitHub
-=======================*/
 
 .github{
-    color:#f5f5f5;
-    box-shadow:0 0 12px rgba(255,255,255,.12);
+    background:#24292F;
+    box-shadow:0 8px 20px rgba(36,41,47,.40);
 }
-
-.github:hover{
-    box-shadow:0 0 22px rgba(255,255,255,.22);
-}
-
-/*=======================
-   Facebook
-=======================*/
 
 .facebook{
-    color:#1877F2;
-    box-shadow:0 0 12px rgba(24,119,242,.25);
+    background:#1877F2;
+    box-shadow:0 8px 20px rgba(24,119,242,.40);
 }
-
-.facebook:hover{
-    box-shadow:0 0 22px rgba(24,119,242,.45);
-}
-
-/*=======================
-   Instagram
-=======================*/
 
 .instagram{
-    color:#E1306C;
-    box-shadow:0 0 12px rgba(225,48,108,.28);
+    background:linear-gradient(
+        45deg,
+        #F58529,
+        #DD2A7B,
+        #8134AF,
+        #515BD4
+    );
+    box-shadow:0 8px 20px rgba(221,42,123,.40);
 }
-
-.instagram:hover{
-    box-shadow:0 0 22px rgba(225,48,108,.45);
-}
-
-/*=======================
-   WhatsApp
-=======================*/
 
 .whatsapp{
-    color:#25D366;
-    box-shadow:0 0 12px rgba(37,211,102,.28);
+    background:#25D366;
+    box-shadow:0 8px 20px rgba(37,211,102,.40);
 }
-
-.whatsapp:hover{
-    box-shadow:0 0 22px rgba(37,211,102,.45);
-}
-
-/*=======================
-   YouTube
-=======================*/
 
 .youtube{
-    color:#FF0000;
-    box-shadow:0 0 12px rgba(255,0,0,.25);
+    background:#FF0000;
+    box-shadow:0 8px 20px rgba(255,0,0,.40);
 }
-
-.youtube:hover{
-    box-shadow:0 0 22px rgba(255,0,0,.45);
-}
-
-/*=======================
-   X (Twitter)
-=======================*/
 
 .x{
-    color:#000;
-    box-shadow:0 0 12px rgba(0,0,0,.18);
+    background:#000;
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
 }
-
-.x:hover{
-    box-shadow:0 0 22px rgba(0,0,0,.30);
-}
-
-/* Dark Mode */
-
-[data-theme="dark"] .x{
-    color:#ffffff;
-    box-shadow:0 0 12px rgba(255,255,255,.18);
-}
-
-[data-theme="dark"] .x:hover{
-    box-shadow:0 0 22px rgba(255,255,255,.28);
-}
-
-/*=======================
-   Email
-=======================*/
 
 .email{
-    color:#7C3AED;
-    box-shadow:0 0 12px rgba(124,58,237,.28);
+    background:#7C3AED;
+    box-shadow:0 8px 20px rgba(124,58,237,.40);
 }
 
-.email:hover{
-    box-shadow:0 0 22px rgba(124,58,237,.45);
+/*======================================
+          LIGHT MODE
+======================================*/
+
+[data-theme="light"] .social-title h2{
+    color:#1f2937;
 }
 
-/*=======================
-   Light Mode
-=======================*/
-
-[data-theme="light"] .social-btn{
-    background:#ffffff;
-    border:1px solid #e7e7e7;
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
+[data-theme="light"] .social-title p{
+    color:#6b7280;
 }
 
-/*=======================
-   Dark Mode
-=======================*/
+/*======================================
+          DARK MODE
+======================================*/
 
-[data-theme="dark"] .social-btn{
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.08);
+[data-theme="dark"] .social-title h2{
+    color:#ffffff;
+}
+
+[data-theme="dark"] .social-title p{
+    color:#bdbdbd;
+}
+
+/*======================================
+            MOBILE
+======================================*/
+
+@media (max-width:768px){
+
+    .social-section{
+        padding:60px 15px;
+    }
+
+    .social-icons{
+        gap:14px;
+    }
+
+    .social-btn{
+        width:58px;
+        height:58px;
+        font-size:24px;
+        border-radius:16px;
+    }
+
+    .social-title h2{
+        font-size:1.7rem;
+    }
+
+    .social-title p{
+        font-size:14px;
+    }
+
 }
