@@ -2901,136 +2901,120 @@ textarea:focus-visible {
 }
 
 
-/*==========================
-SOCIAL SECTION
-==========================*/
+
+/*=============================
+      SOCIAL SECTION
+==============================*/
 
 .social-section{
 
-    padding:120px 20px;
+padding:80px 20px;
 
-    position:relative;
-
-}
-
-.social-grid{
-
-    max-width:900px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-
-    gap:25px;
-
-    margin-top:60px;
+text-align:center;
 
 }
 
-.social-card{
+.social-title h2{
 
-    position:relative;
+font-size:2rem;
 
-    overflow:hidden;
+margin-bottom:10px;
 
-    height:160px;
-
-    border-radius:24px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:18px;
-
-    text-decoration:none;
-
-    color:white;
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(20px);
-
-    transition:.45s;
+font-weight:700;
 
 }
 
-.social-card::before{
+.social-title p{
 
-    content:"";
+opacity:.7;
 
-    position:absolute;
+margin-bottom:40px;
 
-    width:250px;
-
-    height:250px;
-
-    border-radius:50%;
-
-    top:-180px;
-
-    left:-180px;
-
-    background:rgba(255,255,255,.08);
-
-    transition:.6s;
+font-size:15px;
 
 }
 
-.social-card:hover::before{
+.social-icons{
 
-    top:-40px;
+display:flex;
 
-    left:-40px;
+justify-content:center;
 
-}
+align-items:center;
 
-.social-card:hover{
+flex-wrap:wrap;
 
-    transform:translateY(-12px);
-
-}
-
-.social-card i{
-
-    font-size:42px;
-
-    transition:.45s;
+gap:18px;
 
 }
 
-.social-card span{
+.social-btn{
 
-    font-size:17px;
+width:68px;
 
-    font-weight:600;
+height:68px;
 
-    letter-spacing:.5px;
+border-radius:18px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-decoration:none;
+
+font-size:28px;
+
+transition:.35s ease;
+
+position:relative;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#fff;
 
 }
 
-.social-card:hover i{
+.social-btn:hover{
 
-    transform:scale(1.25) rotate(8deg);
+transform:translateY(-6px) scale(1.08);
 
 }
 
+.social-btn::after{
 
-/* COLORS */
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:18px;
+
+opacity:0;
+
+transition:.35s;
+
+}
+
+.social-btn:hover::after{
+
+opacity:1;
+
+}
+
+/* Colors */
 
 .linkedin:hover{
 
 background:#0A66C2;
 
-box-shadow:0 0 40px #0A66C2;
+box-shadow:0 0 18px #0A66C2;
 
 }
 
@@ -3038,7 +3022,7 @@ box-shadow:0 0 40px #0A66C2;
 
 background:#24292F;
 
-box-shadow:0 0 40px #24292F;
+box-shadow:0 0 18px #24292F;
 
 }
 
@@ -3046,7 +3030,7 @@ box-shadow:0 0 40px #24292F;
 
 background:#1877F2;
 
-box-shadow:0 0 40px #1877F2;
+box-shadow:0 0 18px #1877F2;
 
 }
 
@@ -3054,15 +3038,7 @@ box-shadow:0 0 40px #1877F2;
 
 background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);
 
-box-shadow:0 0 40px #DD2A7B;
-
-}
-
-.youtube:hover{
-
-background:#FF0000;
-
-box-shadow:0 0 40px #FF0000;
+box-shadow:0 0 18px #DD2A7B;
 
 }
 
@@ -3070,48 +3046,83 @@ box-shadow:0 0 40px #FF0000;
 
 background:#25D366;
 
-box-shadow:0 0 40px #25D366;
+box-shadow:0 0 18px #25D366;
 
 }
 
-.tiktok:hover{
+.youtube:hover{
 
-background:#111;
+background:#FF0000;
 
-box-shadow:0 0 40px cyan;
+box-shadow:0 0 18px #FF0000;
 
 }
 
 .x:hover{
 
-background:#000;
+background:#111;
 
-box-shadow:0 0 40px white;
+box-shadow:0 0 18px #ffffff;
+
+}
+
+.email:hover{
+
+background:#7C3AED;
+
+box-shadow:0 0 18px #7C3AED;
 
 }
 
 
-/* Mobile */
+/*=====================
+LIGHT MODE
+======================*/
+
+[data-theme="light"] .social-btn{
+
+background:#ffffff;
+
+color:#222;
+
+border:1px solid #e5e5e5;
+
+box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+[data-theme="light"] .social-title p{
+
+color:#555;
+
+}
+
+
+/*=====================
+MOBILE
+======================*/
 
 @media(max-width:768px){
 
-.social-grid{
+.social-btn{
 
-grid-template-columns:repeat(2,1fr);
+width:58px;
 
-gap:18px;
+height:58px;
 
-}
-
-.social-card{
-
-height:140px;
+font-size:24px;
 
 }
 
-.social-card i{
+.social-icons{
 
-font-size:35px;
+gap:14px;
+
+}
+
+.social-title h2{
+
+font-size:1.7rem;
 
 }
 
