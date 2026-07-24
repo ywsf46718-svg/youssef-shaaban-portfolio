@@ -2902,228 +2902,162 @@ textarea:focus-visible {
 
 
 
-/*=============================
-      SOCIAL SECTION
-==============================*/
-
-.social-section{
-
-padding:80px 20px;
-
-text-align:center;
-
-}
-
-.social-title h2{
-
-font-size:2rem;
-
-margin-bottom:10px;
-
-font-weight:700;
-
-}
-
-.social-title p{
-
-opacity:.7;
-
-margin-bottom:40px;
-
-font-size:15px;
-
-}
-
-.social-icons{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-flex-wrap:wrap;
-
-gap:18px;
-
-}
+/*======================================
+        SOCIAL ICONS COLORS
+=======================================*/
 
 .social-btn{
-
-width:68px;
-
-height:68px;
-
-border-radius:18px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-decoration:none;
-
-font-size:28px;
-
-transition:.35s ease;
-
-position:relative;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(12px);
-
-border:1px solid rgba(255,255,255,.08);
-
-color:#fff;
-
+    width:68px;
+    height:68px;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    font-size:28px;
+    transition:all .35s ease;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.08);
 }
+
+/* Hover Animation */
 
 .social-btn:hover{
-
-transform:translateY(-6px) scale(1.08);
-
+    transform:translateY(-8px) scale(1.08);
 }
 
-.social-btn::after{
+/*=======================
+   LinkedIn
+=======================*/
 
-content:"";
-
-position:absolute;
-
-inset:0;
-
-border-radius:18px;
-
-opacity:0;
-
-transition:.35s;
-
+.linkedin{
+    color:#0A66C2;
+    box-shadow:0 0 12px rgba(10,102,194,.25);
 }
-
-.social-btn:hover::after{
-
-opacity:1;
-
-}
-
-/* Colors */
 
 .linkedin:hover{
+    box-shadow:0 0 22px rgba(10,102,194,.45);
+}
 
-background:#0A66C2;
+/*=======================
+   GitHub
+=======================*/
 
-box-shadow:0 0 18px #0A66C2;
-
+.github{
+    color:#f5f5f5;
+    box-shadow:0 0 12px rgba(255,255,255,.12);
 }
 
 .github:hover{
+    box-shadow:0 0 22px rgba(255,255,255,.22);
+}
 
-background:#24292F;
+/*=======================
+   Facebook
+=======================*/
 
-box-shadow:0 0 18px #24292F;
-
+.facebook{
+    color:#1877F2;
+    box-shadow:0 0 12px rgba(24,119,242,.25);
 }
 
 .facebook:hover{
+    box-shadow:0 0 22px rgba(24,119,242,.45);
+}
 
-background:#1877F2;
+/*=======================
+   Instagram
+=======================*/
 
-box-shadow:0 0 18px #1877F2;
-
+.instagram{
+    color:#E1306C;
+    box-shadow:0 0 12px rgba(225,48,108,.28);
 }
 
 .instagram:hover{
+    box-shadow:0 0 22px rgba(225,48,108,.45);
+}
 
-background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);
+/*=======================
+   WhatsApp
+=======================*/
 
-box-shadow:0 0 18px #DD2A7B;
-
+.whatsapp{
+    color:#25D366;
+    box-shadow:0 0 12px rgba(37,211,102,.28);
 }
 
 .whatsapp:hover{
+    box-shadow:0 0 22px rgba(37,211,102,.45);
+}
 
-background:#25D366;
+/*=======================
+   YouTube
+=======================*/
 
-box-shadow:0 0 18px #25D366;
-
+.youtube{
+    color:#FF0000;
+    box-shadow:0 0 12px rgba(255,0,0,.25);
 }
 
 .youtube:hover{
+    box-shadow:0 0 22px rgba(255,0,0,.45);
+}
 
-background:#FF0000;
+/*=======================
+   X (Twitter)
+=======================*/
 
-box-shadow:0 0 18px #FF0000;
-
+.x{
+    color:#000;
+    box-shadow:0 0 12px rgba(0,0,0,.18);
 }
 
 .x:hover{
+    box-shadow:0 0 22px rgba(0,0,0,.30);
+}
 
-background:#111;
+/* Dark Mode */
 
-box-shadow:0 0 18px #ffffff;
+[data-theme="dark"] .x{
+    color:#ffffff;
+    box-shadow:0 0 12px rgba(255,255,255,.18);
+}
 
+[data-theme="dark"] .x:hover{
+    box-shadow:0 0 22px rgba(255,255,255,.28);
+}
+
+/*=======================
+   Email
+=======================*/
+
+.email{
+    color:#7C3AED;
+    box-shadow:0 0 12px rgba(124,58,237,.28);
 }
 
 .email:hover{
-
-background:#7C3AED;
-
-box-shadow:0 0 18px #7C3AED;
-
+    box-shadow:0 0 22px rgba(124,58,237,.45);
 }
 
-
-/*=====================
-LIGHT MODE
-======================*/
+/*=======================
+   Light Mode
+=======================*/
 
 [data-theme="light"] .social-btn{
-
-background:#ffffff;
-
-color:#222;
-
-border:1px solid #e5e5e5;
-
-box-shadow:0 6px 18px rgba(0,0,0,.08);
-
+    background:#ffffff;
+    border:1px solid #e7e7e7;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
 }
 
-[data-theme="light"] .social-title p{
+/*=======================
+   Dark Mode
+=======================*/
 
-color:#555;
-
-}
-
-
-/*=====================
-MOBILE
-======================*/
-
-@media(max-width:768px){
-
-.social-btn{
-
-width:58px;
-
-height:58px;
-
-font-size:24px;
-
-}
-
-.social-icons{
-
-gap:14px;
-
-}
-
-.social-title h2{
-
-font-size:1.7rem;
-
-}
-
+[data-theme="dark"] .social-btn{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
 }
